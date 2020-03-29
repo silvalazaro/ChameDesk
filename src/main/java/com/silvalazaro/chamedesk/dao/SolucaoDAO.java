@@ -20,7 +20,7 @@ public class SolucaoDAO implements DAO<Solucao> {
     }
 
     @Override
-    public void exclui(Object id) {
+    public void excluir(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

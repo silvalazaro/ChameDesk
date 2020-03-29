@@ -14,7 +14,7 @@ public interface DAO<E> {
 
     public E salvar(E entidade) throws Exception;
 
-    public void exclui(Object id) throws Exception;
+    public void excluir(int id) throws Exception;
 
     public List<E> listar() throws Exception;
 

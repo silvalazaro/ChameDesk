@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,6 +35,7 @@ public class ProblemaDAO implements DAO<Problema> {
             problema.setNome(resultado.getString(2));
             problema.setClasse(resultado.getString(3));
         }
+        statement.close();
         return problema;
     }
 
@@ -56,17 +58,37 @@ public class ProblemaDAO implements DAO<Problema> {
         if (resultado.next() && entidade.getId() == 0) {
             entidade.setId(resultado.getInt(1));
         }
+        statement.close();
         return entidade;
     }
 
     @Override
-    public void exclui(Object id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void excluir(int id) throws ClassNotFoundException, ClassNotFoundException, SQLException {
+        Connection conexao = ConexaoDB.getInstancia().getConexao();
+        PreparedStatement statement = conexao.prepareStatement("DELETE FROM PROBLEMA WHERE ID = ?");
+        statement.setInt(1, id);
+        statement.execute();
+        statement.close();
     }
 
     @Override
-    public List<Problema> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Problema> listar() throws ClassNotFoundException, SQLException {
+        List<Problema> problemas = new ArrayList<>();
+        ResultSet registros;
+        Connection conexao = ConexaoDB.getInstancia().getConexao();
+        PreparedStatement statement = conexao.prepareStatement("SELECT ID, NOME, CLASSE FROM"
+                + " PROBLEMA");
+        registros = statement.executeQuery();
+
+        while (registros.next()) {
+            Problema problema = new Problema();
+            problema.setId(registros.getInt(1));
+            problema.setNome(registros.getString(2));
+            problema.setClasse(registros.getString(3));
+            problemas.add(problema);
+        }
+        statement.close();
+        return problemas;
     }
 
 }

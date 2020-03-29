@@ -18,6 +18,6 @@ INSERT INTO PROBLEMA (NOME)
 VALUES ('Não liga'), 
 ('Travando');
 
-INSERT INTO SOLUCAO(ID, NOME)
-VALUES (1, 'Removido mal contato'),
-(2, 'HD substituído');
+INSERT INTO SOLUCAO(NOME)
+VALUES ('Removido mal contato'),
+('HD substituído');
