@@ -26,5 +26,4 @@ INSERT INTO SOLUCAO(NOME) VALUES
  ('Remover mal contato')
 ,('Substituir o HD')
 ,('Reparar monitor')
-,('Substituir o cabo')
-,('Trocar equipamento');
+,('Substituir o cabo');
