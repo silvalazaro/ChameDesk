@@ -14,10 +14,17 @@ NOME CHAR(100),
 CLASSE CHAR(100)
 );
 
-INSERT INTO PROBLEMA (NOME)
-VALUES ('Não liga'), 
-('Travando');
+/* popula o banco */
+INSERT INTO PROBLEMA (NOME) VALUES 
+ ('Não liga') 
+,('HD com defeito')
+,('Falha ao iniciar')
+,('Monitor piscando')
+,('Travando');
 
-INSERT INTO SOLUCAO(NOME)
-VALUES ('Removido mal contato'),
-('HD substituído');
+INSERT INTO SOLUCAO(NOME) VALUES 
+ ('Remover mal contato')
+,('Substituir o HD')
+,('Reparar monitor')
+,('Substituir o cabo')
+,('Trocar equipamento');

@@ -12,7 +12,7 @@
         <derby.versao>10.14.2.0</derby.versao>
         <junit.versao>4.13</junit.versao>
         <ojdbc.versao>14</ojdbc.versao>
-        <db.nome>chamedb</db.nome>
+        <db.nome>chame</db.nome>
         <db.esquema>demo</db.esquema>
         <db.usuario>demo</db.usuario>
         <db.senha>demo</db.senha>
@@ -56,24 +56,6 @@
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-antrun-plugin</artifactId>
-                        <version>1.8</version>
-                        <executions>
-                            <execution>
-                                <phase>compile</phase>
-                                <configuration>
-                                    <target>
-                                        <ant antfile="build.banco.xml"/>
-                                    </target>
-                                </configuration>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-dependency-plugin</artifactId>
                         <version>3.1.2</version>
                         <executions>
@@ -89,9 +71,27 @@
                                             <groupId>org.apache.derby</groupId>
                                             <artifactId>derby</artifactId>
                                             <version>${derby.versao}</version>
-                                            <outputDirectory>${basedir}/target</outputDirectory>
+                                            <outputDirectory>${basedir}/derby</outputDirectory>
                                         </artifactItem>
                                     </artifactItems>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <ant antfile="build.banco.xml"/>
+                                    </target>
                                 </configuration>
                             </execution>
                         </executions>
@@ -106,11 +106,6 @@
                     <plugins>
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-antrun-plugin</artifactId>
-                            <version>1.8</version>
-                        </plugin>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-surefire-plugin</artifactId>
                             <version>3.0.0-M4</version>
                         </plugin>
@@ -120,13 +115,16 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.22.0</version>
+                        <configuration>
+                            <includes>
+                                <include>ChameDeskTest</include>
+                            </includes>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
         </profile>
     </profiles>
-     
     <reporting>
         <plugins>
             <plugin>

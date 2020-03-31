@@ -1,12 +1,12 @@
 <project>
-    <delete dir="${db.nome}"/>
+    <delete dir="derby/${db.nome}"/>
     <path id="classpath">
-        <fileset dir="${project.build.directory}" includes="derby-${derby.versao}.jar"/>
+        <fileset dir="derby" includes="derby-${derby.versao}.jar"/>
     </path>
     <sql
         classpathref="classpath" 
         driver="org.apache.derby.jdbc.EmbeddedDriver"
-        url="jdbc:derby:${db.nome};create=true"
+        url="jdbc:derby:derby/${db.nome};create=true"
         userid="${db.usuario}"
         password="${db.senha}"
         src="bancodedados.sql"

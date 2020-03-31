@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
- * Realiza os testes da classe Problema
+ * Realiza os testes da classe ProblemaDAO
  *
  * @author Lazaro
  */
@@ -25,7 +25,7 @@ public class ProblemaDAOTest {
 
     @Test
     public void testAtualizaProblema() throws Exception {
-        Problema problema = (Problema) dao.buscaPorId(1);
+        Problema problema = (Problema) dao.listar().get(0);
         problema.setNome("Modificado pelo testSalvaProblema");
         dao.salvar(problema);
     }
@@ -44,6 +44,8 @@ public class ProblemaDAOTest {
 
     @Test
     public void testExcluirProblema() throws Exception {
-        dao.excluir(1);
+        List<Problema> problemas = dao.listar();
+        Problema problema = (Problema) problemas.get(problemas.size() - 1);
+        dao.excluir(problema.getId());
     }
 }
