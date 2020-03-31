@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Classe que realiza as operacoes com o banco de dados da entidade Problema
  *
  * @author Lazaro
  */

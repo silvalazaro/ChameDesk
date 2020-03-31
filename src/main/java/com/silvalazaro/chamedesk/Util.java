@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Classe Util contém alguns atributos e métodos utilizados no sistema
+ * Classe que contém alguns atributos e métodos utilizados no sistema
  *
  * @author Lazaro
  */

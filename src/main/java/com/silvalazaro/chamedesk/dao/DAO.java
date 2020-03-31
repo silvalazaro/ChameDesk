@@ -3,7 +3,7 @@ package com.silvalazaro.chamedesk.dao;
 import java.util.List;
 
 /**
- * Classe DAO que realiza aos operacoes com o banco de dados
+ * Interface que define as operacoes com o banco de dados
  *
  * @author Lazaro
  * @param <E>

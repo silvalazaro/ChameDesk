@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Classe Solucao representa uma solucao para um problema
+ * Classe que realiza as operacoes com o banco de dados da entidade Solucao
  *
  * @author Lazaro
  */
